@@ -1,6 +1,8 @@
 This workflow uses Qiime2 and some other software installed in USF's CIRCE/RRA servers. 
 
-#### Step 1: Bash script for 1) Automated quality assessment of pre- and post-trimmed fastq files, and 2) trimming at Q25 threshold. These are performed using the fastqc and cutadapt packages in TrimGalore!
+### Step 1: Quality assessment and trimming
+
+This is an example bash script to automate 1) quality assessment of pre- and post-trimmed fastq files and 2) fastq trimming using a Q25 threshold. These are performed using the fastqc and cutadapt packages in TrimGalore!
 
 Change the working directory (variable **DIR**) containing all fastq files accordingly. Also, look at patterns in your file names and change the suffix (e.g. _R1_001.fastq.gz) accordingly.
 
