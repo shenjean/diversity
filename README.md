@@ -81,7 +81,7 @@ sample-id      absolute-filepath       direction
 ```
 
 #### Should I use raw or trimmed fastq files?
-You can specify raw, untrimmed fastq files to Qiime2, and trim them within the Qiime2 environment, e.g. using DADA2. Alternatively, you can also use pre-trimmed fastq files. This way,you do not have to trim them further in Qiime, or you could just perform minimal trimming if you would like.
+You can specify raw, untrimmed fastq files to Qiime2, and trim them within the Qiime2 environment, e.g. using DADA2. Alternatively, you can also use pre-trimmed fastq files so that you only have to process them minimally in Qiime2. 
 
 #### How do I create the manifest file?
 
