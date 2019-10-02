@@ -7,7 +7,6 @@ This is an example bash script to automate 1) quality assessment of pre- and pos
 Change the working directory (variable **DIR**) containing all fastq files accordingly. Also, look at patterns in your file names and change the suffix (e.g. _R1_001.fastq.gz) accordingly.
 
 ```
-
 #!/bin/bash
 #SBATCH --job-name=trim
 #SBATCH --time=5:00:00
@@ -71,13 +70,14 @@ This is how a manifest file looks like for Qiime2 2017.8. It is typically tab-se
 
 Qiime2 requires **absolute** filepaths e.g. with full directory paths for its manifest file. You can do that e.g. /work/x/xxx/fastq/yyy.R1.fastq or the easiest way to do is to just use "$PWD" to denote your current working directory. 
 
+Qiime2 takes fastq files and gunzipped (.gz) fastq files.
+
 ```
 sample-id      absolute-filepath       direction
 01bas   $PWD/TGH-001B_S88_L001_R1_001_val_1.fq.gz forward
 01bas   $PWD/TGH-001B_S88_L001_R2_001_val_2.fq.gz reverse
 01end   $PWD/TGH-001E_S89_L001_R1_001_val_1.fq.gz forward
 01end   $PWD/TGH-001E_S89_L001_R2_001_val_2.fq.gz reverse
-
 ```
 
 #### Should I use raw or trimmed fastq files?
@@ -88,6 +88,13 @@ You can specify raw, untrimmed fastq files to Qiime2, and trim them within the Q
 You can either create this file on Microsoft Excel and upload or copy and paste it to the server. Or you can use some simple bash scripts:
 
 ### Manifest file format for Qiime2 2018.9 on other server/own computer
+
+```
+sample-id	forward-absolute-filepath	reverse-absolute-filepath
+01bas	$PWD/TGH-001B_S88_L001_R1_001_val_1.fq.gz	$PWD/TGH-001B_S88_L001_R2_001_val_2.fq.gz
+01end	$PWD/TGH-001E_S89_L001_R1_001_val_1.fq.gz	$PWD/TGH-001E_S89_L001_R2_001_val_2.fq.gz
+```
+
 
 
 
