@@ -85,7 +85,9 @@ You can specify raw, untrimmed fastq files to Qiime2, and trim them within the Q
 
 #### How do I create the manifest file?
 
-You can either create this file on Microsoft Excel and upload or copy and paste it to the server. Or you can use some simple bash scripts:
+You can create this file on Microsoft Excel and upload or copy and paste it to the server. 
+
+Or, if your sample IDs are already part of your fastq file names, you can use some simple bash scripts to generate the manifest file:
 
 ### Manifest file format for Qiime2 2018.9 on other server/own computer
 
