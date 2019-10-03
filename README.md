@@ -119,8 +119,23 @@ You can specify raw, untrimmed fastq files to Qiime2, and trim them within the Q
 
 You can create this file on Microsoft Excel and upload or copy and paste it to the server. 
 
-Or, if your sample IDs are already part of your fastq file names, you can use some simple bash scripts to generate the manifest file:
+Or, if your sample IDs are already part of your fastq file names, you can use some simple bash scripts to generate the manifest file. 
 
+For example, if your sample IDs are before the first underscore (_) in your file names, e.g. TGH-001B_S88 in TGH-001B_S88_L001_R1_001_val_1.fq.gz, you can parse them out and save them to a file e.g. sampleIDheader with the one-liner below:
+```
+ls *R1*fq.gz | awk -F "_" '{print $1}' >sampleIDheader
+```
+Example output (e.g. sampleIDheader):
+```
+TGH-001B
+TGH-001E
+```
+Then, you can generate the list of files with the **ls** command, and add in the filepaths using the **sed** command that replaces the beginning of each line with **$PWD/**. In unix, $ and * are special characters that have to be escaped using the backward slash \. 
+
+```
+ls *R1*fq.gz | sed "s/^/\$PWD\//"
+```
+ 
 ### Manifest file format for Qiime2 2018.9 on other server/own computer
 
 ```
