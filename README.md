@@ -100,7 +100,7 @@ sample-id	forward-absolute-filepath	reverse-absolute-filepath
 01end	$PWD/TGH-001E_S89_L001_R1_001_val_1.fq.gz	$PWD/TGH-001E_S89_L001_R2_001_val_2.fq.gz
 ```
 
-## Step 4: Import data specified in the manifest file to Qiime2
+## Step 3: Import data specified in the manifest file to Qiime2
 
 ```
 qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path $DIR/manifest --output-path $DIR/q25.qza --input-format PairedEndFastqManifestPhred33V2
@@ -109,7 +109,7 @@ qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-pa
 **A note on Phred offset used for positional quality scores:**
 Newer Illumina software uses Phred33 and older Illumina software uses Phred64. See: http://scikit-bio.org/docs/latest/generated/skbio.io.format.fastq.html#quality-score-variants. Don't worry if you are not sure about this. If set incorrectly, the command will throw an error and you can change the parameter accordingly. 
 
-## Step 3: Create the metadata file
+## Step 4: Create the metadata file
 
 Metadata file is in tab-separated format.  Best way is to create this in Excel then upload/copy and paste into server. 
 
