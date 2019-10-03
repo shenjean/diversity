@@ -143,7 +143,6 @@ For Qiime2 2017.8, you can generate the list of files with the **ls** command, a
 
 ```
 ls *fq.gz | sed "s/^/\$PWD\//" | sed "s/1.fq.gz/&\tforward/" | sed "s/2.fq.gz/&\treverse/"
-
 ```
 Example output (e.g. filelist). Check output with **cat** or **more** command:
 ```
