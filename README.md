@@ -5,9 +5,30 @@ This workflow uses Qiime2 and some other software installed in USF's CIRCE/RRA s
 Documentation on CIRCE/RRA cluster: https://wiki.rc.usf.edu/index.php/Main_Page
 
 ### Submit a job to the cluster
-This is an example bash script to automate 1) quality assessment of pre- and post-trimmed fastq files and 2) fastq trimming using a Q25 threshold. These are performed using the fastqc and cutadapt packages in TrimGalore!
 
-Change the working directory (variable **DIR**) containing all fastq files accordingly. Also, look at patterns in your file names and change the suffix (e.g. _R1_001.fastq.gz) accordingly.
+Identify the directory containing all your input fastq files. You can go to any directory using the change directory **cd** command followed by the directory name, e.g. **cd folder_name**. To go one level up, e.g. from /work/x/xxx to /work/x, use the **cd ..** command. Always, check the current working directory using the **pwd** command, e.g.
+
+```
+cd /work/x/xxx
+pwd
+```
+In your working directory, e.g. /work/x/xxx, make a subfolder for your fastqc output files with the **mkdir** command:
+
+```
+cd /work/x/xxx
+mkdir fastqc_orig
+```
+
+This will create a new folder at **/work/x/xxx/fastqc_orig**.
+
+Modify the bash script template below to automate 1) quality assessment of pre- and post-trimmed fastq files and 2) fastq trimming using a Q25 threshold. These functions are performed using the fastqc and cutadapt packages in TrimGalore!
+
+#### Required modifications: 
+1. Change variable **DIR** (line 9 below) to point to your own working directory that contains your fastq files, e.g. if your working directory is /work/a/aaa/fastq instead of /work/x/xxx, change that.
+2. If your fastq files have other file extensions, e.g. **.fastq** or **.fq** instead of **.fastq.gz**, change that in line 11 below.
+3. Look for patterns in your fastq file names. If your fastq files all end with other suffixes instead of **_R1_001.fastq.gz**, change that in lines 13 and 15 below.
+4. Change job name in line 2 from **trim** to something more intuitive to you (optional)
+5. Remove lines 4 and 5 if not using RRA partition (optional)
 
 ```
 #!/bin/bash
@@ -63,6 +84,14 @@ Running:
 ```
 
 Log files of all completed jobs will be saved as **slurm-xxxx.out**. Check your log files and output files once everything is done.
+
+#### Output files:
+1. fastqc_orig/zip files - FastQC output in zipped format, not essential, you can remove them
+2. fastqc_orig/html files - FastQC output in HTML format. Download and open them to look at a summary of the quality of each fastq files.
+3. val_1.fq/val_1.fq.gz files - Trimmed forward fastq files
+4. val_2.fq/val_2.fq.gz files - Trimmed reverse fastq files
+5. trimming report text files - Summary of trimming proces e.g. how many reads were retained after quality filtering. Move them to a subfolder if you wish
+6. fastqc related zip and html files - See points #1 and #2
 
 How to read FastQC output: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
 
