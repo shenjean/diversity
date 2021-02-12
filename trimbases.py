@@ -65,7 +65,7 @@ for filename in os.listdir(directory):
 					contigname=hname[0]
 					print("Now searching <%s> in <%s>...") % (contigname,filename)
 					status,start1,end1,start2,end2=matchme(query=contigname)
-					print(status,start1+1,end1,start2,end2)
+					print(status,start1+1,end1,start2+1,end2)
 					output.write(inline)
 				
 				else:
