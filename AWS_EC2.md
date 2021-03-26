@@ -6,19 +6,19 @@
 2.  Navigate to the EC2 console: <https://console.aws.amazon.com/ec2/>
     or click below:
 
-![](media/image1.emf){width="3.772276902887139in"
+![](Images/media/image1.emf){width="3.772276902887139in"
 height="2.139235564304462in"}
 
 3.  Choose **Launch instance**
 
-![](media/image2.emf){width="6.5in" height="2.433333333333333in"}
+![](Images/media/image2.emf){width="6.5in" height="2.433333333333333in"}
 
 4.  If you are planning to run a Docker container, it is a good idea to
     search for instances with Docker pre-installed. The same goes for
     any other software that you intend to use. Search for **Docker** in
     the search bar, then select any instance that you prefer:
 
-![](media/image3.emf){width="6.5in" height="2.417361111111111in"}
+![](Images/media/image3.emf){width="6.5in" height="2.417361111111111in"}
 
 5.  Choose the instance type, then click Review and Launch.
 
@@ -27,7 +27,8 @@ t2-micro are way too slow and definitely not sufficient. Here is a
 detailed list of the CPU, memory, storage and network performance for
 EC2/EMR instances: <https://aws.amazon.com/ec2/instance-types/>.
 
-![](media/image4.png){width="6.5in" height="2.6222222222222222in"}
+![](Images/media/image4.png){width="6.5in"
+height="2.6222222222222222in"}
 
 > Example specifications from
 > <https://aws.amazon.com/ec2/instance-types/>. Note that there are
@@ -47,24 +48,26 @@ EC2/EMR instances: <https://aws.amazon.com/ec2/instance-types/>.
     you can specify the number of cores and threads and more by checking
     on **Specify CPU options**
 
-![](media/image5.emf){width="6.5in" height="2.4965277777777777in"}
+![](Images/media/image5.emf){width="6.5in"
+height="2.4965277777777777in"}
 
 7.  In the Specify CPU options window, you can click on the
     Information (i) button to learn more about each option.
 
-![](media/image6.png){width="4.623762029746282in"
+![](Images/media/image6.png){width="4.623762029746282in"
 height="2.199744094488189in"}
 
 8.  You can also configure the **storage device** on the instance. More
     information at:
     <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-storage.html>
 
-![](media/image7.png){width="6.051337489063867in"
+![](Images/media/image7.png){width="6.051337489063867in"
 height="2.455446194225722in"}
 
 9.  \[Optional\]: Add **Tags** to your instance.
 
-![](media/image8.png){width="6.5in" height="2.7784722222222222in"}
+![](Images/media/image8.png){width="6.5in"
+height="2.7784722222222222in"}
 
 10. \[Important\]: **Configure security groups**. By default, the rule
     accepts inbound SSH connections on port 22 from all IP addresses
@@ -74,12 +77,12 @@ height="2.455446194225722in"}
     should be replaced by your IP address. Click "Review and Launch" to
     launch your instance.
 
-![](media/image9.emf){width="6.5in" height="2.66875in"}
+![](Images/media/image9.emf){width="6.5in" height="2.66875in"}
 
 11. In the next screen, you will be prompted to select a key pair or
     create a new key pair if you haven't already.
 
-![](media/image10.png){width="4.1584153543307085in"
+![](Images/media/image10.png){width="4.1584153543307085in"
 height="2.5834612860892388in"}
 
 12. If creating a new key pair, you can name your key pair and download
@@ -91,13 +94,13 @@ PuTTY for Windows, Mac, or other OS, you will need the key pair in
 PuTTY's proprietary **ppk** format -- refer to the Appendix for creating
 a key pair in the EC2 console.
 
-![](media/image11.png){width="4.089108705161855in"
+![](Images/media/image11.png){width="4.089108705161855in"
 height="3.0296576990376205in"}
 
 13. Your instance will start and will be ready once the status changes
     to "Running":
 
-![](media/image12.emf){width="5.407643263342083in"
+![](Images/media/image12.emf){width="5.407643263342083in"
 height="2.881187664041995in"}
 
 #  Set up a SSH connection to the master node
@@ -115,13 +118,14 @@ height="2.881187664041995in"}
 
 ssh -i mykeypair.pem <ec2-user@ec2-52-91-14-100.compute-1.amazonaws.com>
 
-![](media/image13.emf){width="5.934465223097113in"
+![](Images/media/image13.emf){width="5.934465223097113in"
 height="2.0891097987751532in"}
 
 3.  Type **yes** to respond to the prompt on the ECDSA key fingerprint,
     and you're in!
 
-![](media/image14.png){width="6.5in" height="3.0902777777777777in"}
+![](Images/media/image14.png){width="6.5in"
+height="3.0902777777777777in"}
 
 4.  Since Docker is already pre-installed, you can just run your Docker
     commands, e.g.
@@ -147,12 +151,13 @@ docker run -v \$HOME:/data/ -it aomlomics/tourmaline
 2.  Navigate to the S3 console: <https://console.aws.amazon.com/s3/> or
     click below:
 
-> ![](media/image15.emf){width="3.287128171478565in"
+> ![](Images/media/image15.emf){width="3.287128171478565in"
 > height="1.8641119860017499in"}
 
 3.  Click "Create bucket":
 
-> ![](media/image16.emf){width="6.5in" height="2.3868055555555556in"}
+> ![](Images/media/image16.emf){width="6.5in"
+> height="2.3868055555555556in"}
 
 4.  **Name** your bucket. After you create a bucket, you cannot change
     its name or region.
@@ -169,7 +174,8 @@ docker run -v \$HOME:/data/ -it aomlomics/tourmaline
     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html>
 
 ![Graphical user interface, text, application, email Description
-automatically generated](media/image17.png){width="5.227722003499562in"
+automatically
+generated](Images/media/image17.png){width="5.227722003499562in"
 height="3.0534142607174104in"}
 
 5.  In **Region,** choose an AWS region close to you to minimize latency
@@ -186,14 +192,14 @@ height="3.0534142607174104in"}
 
 > ![Graphical user interface, text, application Description
 > automatically
-> generated](media/image18.png){width="5.643564085739283in"
+> generated](Images/media/image18.png){width="5.643564085739283in"
 > height="3.5236100174978127in"}
 
 7.  \[Optional but highly recommended\] Enable bucket versioning
     (<https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html>)
 
 ![Graphical user interface, application Description automatically
-generated](media/image19.png){width="6.40165135608049in"
+generated](Images/media/image19.png){width="6.40165135608049in"
 height="1.6831681977252844in"}
 
 8.  Click **Create Bucket**
@@ -234,7 +240,7 @@ height="1.6831681977252844in"}
 > already have an instance running. In the example below, the region is
 > **us-east-2**
 >
-> ![](media/image20.emf){width="3.6430555555555557in"
+> ![](Images/media/image20.emf){width="3.6430555555555557in"
 > height="1.6039599737532808in"}
 >
 > **\#4: Output format**
@@ -296,17 +302,20 @@ charges.
     console, select your instance, then click on **Actions** -\>
     **Instance settings** -\> **Change termination protection**
 
-![](media/image21.emf){width="6.5in" height="1.8763888888888889in"}
+![](Images/media/image21.emf){width="6.5in"
+height="1.8763888888888889in"}
 
 2.  Uncheck the "enable" checkbox then click Save
 
-![](media/image22.emf){width="6.5in" height="3.0034722222222223in"}
+![](Images/media/image22.emf){width="6.5in"
+height="3.0034722222222223in"}
 
 3.  Now you can terminate your instance by selecting it, then clicking
     on **Instance state** -\> **Terminate Instance**. You can also stop,
     reboot, or hibernate your instance here.
 
-![](media/image23.png){width="6.5in" height="1.0986111111111112in"}
+![](Images/media/image23.png){width="6.5in"
+height="1.0986111111111112in"}
 
 4.  This will bring up the Terminate cluster prompt. Click on "Change"
     to turn off termination protection:
@@ -323,13 +332,14 @@ charges.
     bucket that you want to delete, and then choose **Empty** or
     **Delete** at the top of the page.
 
-![](media/image24.emf){width="5.0in" height="1.9925207786526684in"}
+![](Images/media/image24.emf){width="5.0in"
+height="1.9925207786526684in"}
 
 3.  If you are deleting your bucket, confirm that you want to delete the
     bucket by entering the bucket name into the text field, and then
     choose Delete bucket.
 
-![](media/image25.png){width="5.059027777777778in"
+![](Images/media/image25.png){width="5.059027777777778in"
 height="2.485148731408574in"}
 
 **Note:** When you delete a bucket that has S3 Bucket Versioning
@@ -358,13 +368,14 @@ pair.
 15. Navigate to the EC2 console: <https://console.aws.amazon.com/ec2/>
     or click below:
 
-![](media/image1.emf){width="3.772276902887139in"
+![](Images/media/image1.emf){width="3.772276902887139in"
 height="2.139235564304462in"}
 
 16. In the navigation pane, under Network & Security, choose Key Pairs
     and click "**Create key pair**":
 
-> ![](media/image26.emf){width="6.5in" height="2.033333333333333in"}
+> ![](Images/media/image26.emf){width="6.5in"
+> height="2.033333333333333in"}
 
 17. For **Name**, enter a descriptive name for the key pair. Amazon EC2
     associates the public key with the name that you specify as the key
@@ -373,7 +384,7 @@ height="2.139235564304462in"}
 
 > ![Graphical user interface, text, application, Teams Description
 > automatically
-> generated](media/image27.png){width="5.475247156605424in"
+> generated](Images/media/image27.png){width="5.475247156605424in"
 > height="3.873619860017498in"}
 >
 > If you are using PuTTY for Windows, Mac, or other OS, choose ppk
@@ -403,7 +414,7 @@ height="2.139235564304462in"}
 > error when connecting to your EC2/EMR instance:
 >
 > ![Text Description automatically generated with medium
-> confidence](media/image28.png){width="6.5in"
+> confidence](Images/media/image28.png){width="6.5in"
 > height="1.8854166666666667in"}
 >
 > Other connection errors can be troubleshooted here:
