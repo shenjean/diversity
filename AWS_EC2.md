@@ -6,18 +6,18 @@
 2.  Navigate to the EC2 console: <https://console.aws.amazon.com/ec2/>
     or click below:
 
-<img src="media/image1.emf" style="width:3.77228in;height:2.13924in" />
+<img src="media/image1.png" style="width:3.77778in;height:2.13889in" alt="Graphical user interface, application Description automatically generated" />
 
 3.  Choose **Launch instance**
 
-<img src="media/image2.emf" style="width:6.5in;height:2.43333in" />
+<img src="media/image2.png" style="width:6.5in;height:2.43056in" alt="Graphical user interface, application Description automatically generated" />
 
 4.  If you are planning to run a Docker container, it is a good idea to
     search for instances with Docker pre-installed. The same goes for
     any other software that you intend to use. Search for **Docker** in
     the search bar, then select any instance that you prefer:
 
-<img src="media/image3.emf" style="width:6.5in;height:2.41736in" />
+<img src="media/image3.png" style="width:6.5in;height:2.41667in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 5.  Choose the instance type, then click Review and Launch.
 
@@ -26,7 +26,7 @@ t2-micro are way too slow and definitely not sufficient. Here is a
 detailed list of the CPU, memory, storage and network performance for
 EC2/EMR instances: <https://aws.amazon.com/ec2/instance-types/>.
 
-<img src="media/image4.png" style="width:6.5in;height:2.62222in" />
+<img src="media/image4.png" style="width:6.5in;height:2.625in" alt="Table Description automatically generated" />
 
 > Example specifications from
 > <https://aws.amazon.com/ec2/instance-types/>. Note that there are
@@ -46,22 +46,22 @@ EC2/EMR instances: <https://aws.amazon.com/ec2/instance-types/>.
     you can specify the number of cores and threads and more by checking
     on **Specify CPU options**
 
-<img src="media/image5.emf" style="width:6.5in;height:2.49653in" />
+<img src="media/image5.png" style="width:6.5in;height:2.5in" alt="Graphical user interface, application Description automatically generated" />
 
 7.  In the Specify CPU options window, you can click on the
     Information (i) button to learn more about each option.
 
-<img src="media/image6.png" style="width:4.62376in;height:2.19974in" />
+<img src="media/image6.png" style="width:4.625in;height:2.19444in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 8.  You can also configure the **storage device** on the instance. More
     information at:
     <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-storage.html>
 
-<img src="media/image7.png" style="width:6.05134in;height:2.45545in" />
+<img src="media/image7.png" style="width:6.05556in;height:2.45833in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 9.  \[Optional\]: Add **Tags** to your instance.
 
-<img src="media/image8.png" style="width:6.5in;height:2.77847in" />
+<img src="media/image8.png" style="width:6.5in;height:2.77778in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 10. \[Important\]: **Configure security groups**. By default, the rule
     accepts inbound SSH connections on port 22 from all IP addresses
@@ -71,12 +71,12 @@ EC2/EMR instances: <https://aws.amazon.com/ec2/instance-types/>.
     should be replaced by your IP address. Click “Review and Launch” to
     launch your instance.
 
-<img src="media/image9.emf" style="width:6.5in;height:2.66875in" />
+<img src="media/image9.png" style="width:6.5in;height:2.66667in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 11. In the next screen, you will be prompted to select a key pair or
     create a new key pair if you haven’t already.
 
-<img src="media/image10.png" style="width:4.15842in;height:2.58346in" />
+<img src="media/image10.png" style="width:4.15278in;height:2.58333in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 12. If creating a new key pair, you can name your key pair and download
     the key pair, then click “**Launch Instance**”
@@ -87,12 +87,12 @@ PuTTY for Windows, Mac, or other OS, you will need the key pair in
 PuTTY’s proprietary **ppk** format – refer to the Appendix for creating
 a key pair in the EC2 console.
 
-<img src="media/image11.png" style="width:4.08911in;height:3.02966in" />
+<img src="media/image11.png" style="width:4.08333in;height:3.02778in" alt="Graphical user interface, text, application Description automatically generated" />
 
 13. Your instance will start and will be ready once the status changes
     to “Running”:
 
-<img src="media/image12.emf" style="width:5.40764in;height:2.88119in" />
+<img src="media/image12.png" style="width:5.40278in;height:2.875in" alt="Graphical user interface, text, application Description automatically generated" />
 
 #  Set up a SSH connection to the master node
 
@@ -109,12 +109,12 @@ a key pair in the EC2 console.
 
 ssh -i mykeypair.pem <ec2-user@ec2-52-91-14-100.compute-1.amazonaws.com>
 
-<img src="media/image13.emf" style="width:5.93447in;height:2.08911in" />
+<img src="media/image13.png" style="width:5.93056in;height:2.08333in" alt="Graphical user interface, text, application Description automatically generated" />
 
 3.  Type **yes** to respond to the prompt on the ECDSA key fingerprint,
     and you’re in!
 
-<img src="media/image14.png" style="width:6.5in;height:3.09028in" />
+<img src="media/image14.png" style="width:6.5in;height:3.09722in" alt="Table Description automatically generated with low confidence" />
 
 4.  Since Docker is already pre-installed, you can just run your Docker
     commands, e.g.
@@ -140,11 +140,11 @@ docker run -v $HOME:/data/ -it aomlomics/tourmaline
 2.  Navigate to the S3 console: <https://console.aws.amazon.com/s3/> or
     click below:
 
-> <img src="media/image15.emf" style="width:3.28713in;height:1.86411in" />
+> <img src="media/image15.png" style="width:3.29167in;height:1.86111in" alt="Graphical user interface, application Description automatically generated" />
 
 3.  Click “Create bucket”:
 
-> <img src="media/image16.emf" style="width:6.5in;height:2.38681in" />
+> <img src="media/image16.png" style="width:6.5in;height:2.38889in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 4.  **Name** your bucket. After you create a bucket, you cannot change
     its name or region.
@@ -160,7 +160,7 @@ docker run -v $HOME:/data/ -it aomlomics/tourmaline
 -   More rules at:
     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html>
 
-<img src="media/image17.png" style="width:5.22772in;height:3.05341in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<img src="media/image17.png" style="width:5.22222in;height:3.05556in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 5.  In **Region,** choose an AWS region close to you to minimize latency
     and costs and address regulatory requirements. Objects stored in a
@@ -174,12 +174,12 @@ docker run -v $HOME:/data/ -it aomlomics/tourmaline
     to host a public website. For more information, see
     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html>
 
-> <img src="media/image18.png" style="width:5.64356in;height:3.52361in" alt="Graphical user interface, text, application Description automatically generated" />
+> <img src="media/image18.png" style="width:5.63889in;height:3.52778in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 7.  \[Optional but highly recommended\] Enable bucket versioning
     (<https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html>)
 
-<img src="media/image19.png" style="width:6.40165in;height:1.68317in" alt="Graphical user interface, application Description automatically generated" />
+<img src="media/image19.png" style="width:6.40278in;height:1.68056in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 8.  Click **Create Bucket**
 
@@ -219,7 +219,7 @@ docker run -v $HOME:/data/ -it aomlomics/tourmaline
 > already have an instance running. In the example below, the region is
 > **us-east-2**
 >
-> <img src="media/image20.emf" style="width:3.64306in;height:1.60396in" />
+> <img src="media/image20.png" style="width:3.63889in;height:1.59722in" />
 >
 > **\#4: Output format**
 >
@@ -280,17 +280,17 @@ charges.
     console, select your instance, then click on **Actions** -&gt;
     **Instance settings** -&gt; **Change termination protection**
 
-<img src="media/image21.emf" style="width:6.5in;height:1.87639in" />
+<img src="media/image21.png" style="width:6.5in;height:1.875in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 2.  Uncheck the “enable” checkbox then click Save
 
-<img src="media/image22.emf" style="width:6.5in;height:3.00347in" />
+<img src="media/image22.png" style="width:6.5in;height:3in" alt="Graphical user interface, text, application, email, Teams Description automatically generated" />
 
 3.  Now you can terminate your instance by selecting it, then clicking
     on **Instance state** -&gt; **Terminate Instance**. You can also
     stop, reboot, or hibernate your instance here.
 
-<img src="media/image23.png" style="width:6.5in;height:1.09861in" />
+<img src="media/image23.png" style="width:6.5in;height:1.09722in" alt="Graphical user interface, text, application Description automatically generated" />
 
 4.  This will bring up the Terminate cluster prompt. Click on “Change”
     to turn off termination protection:
@@ -307,13 +307,13 @@ charges.
     bucket that you want to delete, and then choose **Empty** or
     **Delete** at the top of the page.
 
-<img src="media/image24.emf" style="width:5in;height:1.99252in" />
+<img src="media/image24.png" style="width:5in;height:1.98611in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 3.  If you are deleting your bucket, confirm that you want to delete the
     bucket by entering the bucket name into the text field, and then
     choose Delete bucket.
 
-<img src="media/image25.png" style="width:5.05903in;height:2.48515in" />
+<img src="media/image25.png" style="width:5.05556in;height:2.48611in" alt="Graphical user interface, text, application, email, Teams Description automatically generated" />
 
 **Note:** When you delete a bucket that has S3 Bucket Versioning
 enabled, all versions of all the objects in the bucket are permanently
@@ -341,19 +341,19 @@ pair.
 15. Navigate to the EC2 console: <https://console.aws.amazon.com/ec2/>
     or click below:
 
-<img src="media/image1.emf" style="width:3.77228in;height:2.13924in" />
+<img src="media/image1.png" style="width:3.77778in;height:2.13889in" alt="Graphical user interface, application Description automatically generated" />
 
 16. In the navigation pane, under Network & Security, choose Key Pairs
     and click “**Create key pair**”:
 
-> <img src="media/image26.emf" style="width:6.5in;height:2.03333in" />
+> <img src="media/image26.png" style="width:6.5in;height:2.02778in" alt="Graphical user interface, text, application, email Description automatically generated" />
 
 17. For **Name**, enter a descriptive name for the key pair. Amazon EC2
     associates the public key with the name that you specify as the key
     name. A key name can include up to 255 ASCII characters. It can’t
     include leading or trailing spaces.
 
-> <img src="media/image27.png" style="width:5.47525in;height:3.87362in" alt="Graphical user interface, text, application, Teams Description automatically generated" />
+> <img src="media/image27.png" style="width:5.47222in;height:3.875in" alt="Graphical user interface, text, application, Teams Description automatically generated" />
 >
 > If you are using PuTTY for Windows, Mac, or other OS, choose ppk
 > format. For other SSH clients, pem is probably the safer bet.
@@ -381,7 +381,7 @@ pair.
 > If you do not set these permissions, then you will get the following
 > error when connecting to your EC2/EMR instance:
 >
-> <img src="media/image28.png" style="width:6.5in;height:1.88542in" alt="Text Description automatically generated with medium confidence" />
+> <img src="media/image28.png" style="width:6.5in;height:1.88889in" alt="Text Description automatically generated with medium confidence" />
 >
 > Other connection errors can be troubleshooted here:
 > <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html#troubleshoot-unprotected-key>
