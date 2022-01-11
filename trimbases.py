@@ -10,6 +10,7 @@
 
 
 ######## This script trims off reamining contaminations from a fasta file, given a list of contig, start position(s), and end position(s)
+######## Works on Python 2.7.18, does not work on Python 3.6.10
 
 # Input (list.tsv):
 # Contig name, start position 1, end position 1, start position 2, end position 2
@@ -26,7 +27,7 @@ from os import path
 import re
 
 directory = r'/Volumes/GoogleDrive/My Drive/NOAA/iceworm/Assemblies/'
-contam=str("guthiseq.contam.tsv")
+contam=str("tissue.contam.tsv")
 
 def matchme(query):
 
@@ -34,7 +35,6 @@ def matchme(query):
 		for line in listfile.readlines():
 			col=line.rsplit("\t")
 			contig=str(col[0])
-			
 			status=str("No match")
 			start1=0
 			end1=0	
@@ -59,7 +59,7 @@ def matchme(query):
 		return status,start1,end1,start2,end2
 
 for filename in os.listdir(directory):
-	if filename.endswith("-fixed-NCBI.chomp.fa"):
+	if filename.endswith("-NCBI.chomp.fa"):
 
 		out_path=str(filename+"_nocontam.fa")
 		in_filename=str(directory+"/"+filename)
@@ -97,7 +97,7 @@ for filename in os.listdir(directory):
 						substring4=string[end1:]
 						output.write(substring3)
 						output.write("\n")
-						output.write(">"+contigname+"_1")
+						output.write(">s_"+contigname)
 						output.write("\n")
 						output.write(substring4)
 						output.write("\n")
