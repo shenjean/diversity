@@ -1,10 +1,22 @@
-######## This script trims off (adaptor) bases from fasta file, given a list of contig, start position(s), and end position(s)
+######## NCBI now contains Contamination Screen that will remove sequences 
+######## marked to exclude and/or trimmed contamination from the ends of sequence (see the 
+######## FixedForeignContaminations.txt file). If the contamination is on either 
+######## side of a run of N's, the N's were also removed.
+######## However, NCBI could not remove the contamination in the 
+######## RemainingContamination.txt file.  NCBI cannot remove contamination that 
+######## is in the middle of a sequence. The sequence may need to be split 
+######## at the contamination and the sequence on either side of the contamination 
+######## submitted as a separate sequence.
+
+
+######## This script trims off reamining contaminations from a fasta file, given a list of contig, start position(s), and end position(s)
 
 # Input (list.tsv):
 # Contig name, start position 1, end position 1, start position 2, end position 2
 # NODE_1856_length_17883_cov_4.208997	17832	17883
 # NODE_1316_length_11040_cov_10.030223	1	19	11016	11040
 
+# Input FASTA file has to be chomped
 
 #!/usr/bin/env python
 
@@ -13,12 +25,12 @@ import os
 from os import path
 import re
 
-directory = r'/home/shared/'
-
+directory = r'/Volumes/GoogleDrive/My Drive/NOAA/iceworm/Assemblies/'
+contam=str("guthiseq.contam.tsv")
 
 def matchme(query):
 
-	with open('list.tsv','r') as listfile:
+	with open(contam,'r') as listfile:
 		for line in listfile.readlines():
 			col=line.rsplit("\t")
 			contig=str(col[0])
@@ -47,9 +59,9 @@ def matchme(query):
 		return status,start1,end1,start2,end2
 
 for filename in os.listdir(directory):
-	if filename.endswith(".chomp.fa"):
+	if filename.endswith("-fixed-NCBI.chomp.fa"):
 
-		out_path=str(filename+"_fixed.fa")
+		out_path=str(filename+"_nocontam.fa")
 		in_filename=str(directory+"/"+filename)
 
 		if path.exists(out_path):
@@ -83,8 +95,11 @@ for filename in os.listdir(directory):
 
 						substring3=string[0:start1]
 						substring4=string[end1:]
-						fixedseq=str(substring3+substring4)
-						output.write(fixedseq)
+						output.write(substring3)
+						output.write("\n")
+						output.write(">"+contigname+"_1")
+						output.write("\n")
+						output.write(substring4)
 						output.write("\n")
 
 					else:
