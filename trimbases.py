@@ -9,7 +9,7 @@
 ######## submitted as a separate sequence.
 
 
-######## This script trims off reamining contaminations from a fasta file, given a list of contig, start position(s), and end position(s)
+######## This script trims off remaining contaminations from a fasta file, given a list of contig, start position(s), and end position(s)
 ######## Works on Python 2.7.18, does not work on Python 3.6.10
 
 # Input (list.tsv):
