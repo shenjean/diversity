@@ -9,15 +9,18 @@
 ######## submitted as a separate sequence.
 
 
-######## This script trims off remaining contaminations from a fasta file, given a list of contig, start position(s), and end position(s)
-######## Works on Python 2.7.18, does not work on Python 3.6.10
+##### This script trims off remaining contaminations from a fasta file, given a list of contig, start position(s), and end position(s)
+##### Contaminating sequences are removed and the contig is split at either side of the contamination (with the prefix s_ at the sequence title)
+
+### Works on Python 2.7.18, does not work on Python 3.6.10
+### Note to add in function to remove sequences shorter than 200 nt in future
+
+# Input FASTA file has to be chomped
 
 # Input (list.tsv):
 # Contig name, start position 1, end position 1, start position 2, end position 2
 # NODE_1856_length_17883_cov_4.208997	17832	17883
 # NODE_1316_length_11040_cov_10.030223	1	19	11016	11040
-
-# Input FASTA file has to be chomped
 
 #!/usr/bin/env python
 
